@@ -14,22 +14,24 @@ The current implementaion of Robustormer only uses the Gaussian denoising task f
 
 The penalization term \(P\) is calculated based on the condition:
 
-$$ P = \max\left(0, \| \text{gt} - \text{y} \|_k - 0.5 \times \| \text{gt} - \text{lq} \|_k \right) $$
+$$ P = \max\left(0,\|\text{gt}-\text{y}\|_k - 0.5 \times \|\text{gt} - \text{lq}\|_k \right) $$
 
 Where:
--  $\text{lq}$ is the low-quality (noisy) input image.
-- $\text{gt}$ is the ground truth (clean) image.
+-  $lq$ is the low-quality (noisy) input image.
+- $gt$ is the ground truth (clean) image.
 - $y$ is the output of the denoising model.
 - $ \| \cdot \|_k $ denotes the $ \ell_k $ norm.
-- $ k $ is the order of the norm (default is 1 because the original training loss is $\ell_1$ loss).
+- $k$ is the order of the norm (default is 1 because the original training loss is $\ell_1$ loss).
 
 The penalization term is applied to the loss function as follows:
 
-$$ \text{loss} = \text{original\_loss} + (\lambda P \times \text{original\_loss}) $$
+$$
+\text{loss} = \text{original\_loss} + (\lambda P \times \text{original\_loss})
+$$
 
 Where:
-- $ \lambda $ is the weight of the penalization term (default is 1).
-- $ \text{original\_loss} $ is the original loss function (e.g., pixel-wise $\ell_1$ loss).
+- $\lambda$ is the weight of the penalization term (default is 1).
+- $original\_loss$ is the original loss function (e.g., pixel-wise $\ell_1$ loss).
 
 
 ## Installation
