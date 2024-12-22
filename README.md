@@ -19,7 +19,7 @@ $$ P = \max\left(0, \| \text{gt} - \text{y} \|_k - 0.5 \times \| \text{gt} - \te
 Where:
 -  $\text{lq}$ is the low-quality (noisy) input image.
 - $\text{gt}$ is the ground truth (clean) image.
-- $ \text{y} $ is the output of the denoising model.
+- $y$ is the output of the denoising model.
 - $ \| \cdot \|_k $ denotes the $ \ell_k $ norm.
 - $ k $ is the order of the norm (default is 1 because the original training loss is $\ell_1$ loss).
 
